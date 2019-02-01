@@ -57,7 +57,9 @@ app.use('/pokemon', pokemonRouter);
 //   res.send('here are your pokemon');
 // })
 
-// console.log(process.env.DB_URL);
+app.get('/test', (req, res) => {
+  res.send(process.env.DB_URL);
+});
 
 app.get('/pokemon-moves', (req, res) => {
   res.send('here are all the available pokemon moves');
