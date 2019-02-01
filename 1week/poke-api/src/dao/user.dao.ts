@@ -5,14 +5,12 @@ export async function findAll(): Promise<User[]> {
   const client = await connectionPool.connect();
   try {
     const result = await client.query(
-      'SELECT * FROM users'
+      'SELECT * FROM public.artist'
     );
     return result.rows.map(sqlUser => {
       return {
-        id: sqlUser['user_id'],
-        username: sqlUser.username,
-        password: '', // don't send back the passwords
-        name: sqlUser.name
+        id: sqlUser['artistid'],
+        username: sqlUser['name']
       };
     });
   } finally {

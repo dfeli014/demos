@@ -15,8 +15,7 @@ import { authMiddleware } from '../middleware/auth.middleware';
 export const userRouter = express.Router();
 
 // /users - find all
-userRouter.get('', [
-  authMiddleware,
+userRouter.get('',
   async (req, res) => {
     // res.json(users);
     try {
@@ -25,7 +24,7 @@ userRouter.get('', [
     } catch (err) {
       res.sendStatus(500);
     }
-  }]);
+  });
 
 // /users/:id - find by id
 userRouter.get('/:id', async (req, res) => {
