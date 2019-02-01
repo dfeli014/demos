@@ -1,6 +1,6 @@
 import express from 'express';
 import * as UserDao from '../dao/user.dao';
-import { authMiddleware } from '../middleware/auth.middleware';
+// import { authMiddleware } from '../middleware/auth.middleware';
 // import { User } from '../models/user';
 
 // const peter = new User(1, 'peter', 'password', 'peter');
