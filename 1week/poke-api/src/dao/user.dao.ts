@@ -4,8 +4,9 @@ import { connectionPool } from '../util/connection-util';
 export async function findAll(): Promise<User[]> {
   const client = await connectionPool.connect();
   try {
+    console.log('Here');
     const result = await client.query(
-      'SELECT * FROM artist'
+      'SELECT * FROM public.artist'
     );
     return result.rows.map(sqlUser => {
       return {
