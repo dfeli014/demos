@@ -16,6 +16,7 @@ export class ClickerComponent extends React.Component<ICLickerProps, any> {
     super(props);
   }
 
+  //Testing!
   render() {
     const {clicks} = this.props.clicker;
     // const {clicks} = this.props;
