@@ -31,9 +31,10 @@ app.use(session(sess));
 
 // allow cross origins
 app.use((req, resp, next) => {
+  console.log(req.get('host'));
   (process.env.MOVIE_API_STAGE === 'prod')
     ? resp.header('Access-Control-Allow-Origin', process.env.DEMO_APP_URL)
-    : resp.header('Access-Control-Allow-Origin', `http://localhost:5500`);
+    : resp.header('Access-Control-Allow-Origin', `${req.headers.origin}`);
   resp.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   resp.header('Access-Control-Allow-Credentials', 'true');
   next();
@@ -42,6 +43,13 @@ app.use((req, resp, next) => {
 app.use('/auth', authRouter);
 app.use('/users', userRouter);
 app.use('/pokemon', pokemonRouter);
+
+/**
+ * Don't do this, this was just to see if environment variables were working
+ */
+app.get('/env', (req, res) => {
+  res.send(process.env.DB_URL);
+});
 
 // app.get('/users', (req, res) => {
 //   res.send('here are your users');
