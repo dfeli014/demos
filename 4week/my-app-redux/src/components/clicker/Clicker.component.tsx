@@ -31,6 +31,7 @@ export class ClickerComponent extends React.Component<ICLickerProps, any> {
     return (
       <div>
         <ClickerDisplayComponent clicks={clicks}/>
+        Here we go!
         <ClickerIncrementersComponent {...{
           clicks,
           incrementAmount: 1,
